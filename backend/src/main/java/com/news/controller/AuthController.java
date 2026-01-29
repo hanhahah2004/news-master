@@ -23,6 +23,7 @@ public class AuthController {
     @PostMapping("/login")
     public ResponseEntity<?> login(@Valid @RequestBody LoginDTO loginDTO) {
         String token = userService.login(loginDTO);
+
         return ResponseEntity.ok(Result.success(Map.of("token", token, "type", "Bearer")));
     }
 
